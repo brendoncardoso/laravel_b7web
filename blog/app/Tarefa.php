@@ -1,0 +1,12 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Tarefa extends Model
+{
+    //
+    public $timestamps = false;
+    public $fillable = ['titulo', 'status'];
+}
