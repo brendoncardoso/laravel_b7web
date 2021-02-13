@@ -259,19 +259,31 @@ return [
             'url'         => 'painel/cadaster/user',
             'icon'        => 'fa fa-user-plus',
             'label_color' => 'success',
+            'can'  => 'edit-users'
         ],
         [
             'text'        => 'Usuários',
             'url'         => 'painel/users',
             'icon'        => 'fa fa-users',
-            'label'       =>  '',
-            'label_color' => 'success',
+            'can'  => 'edit-users'
         ],
-        /*['header' => 'account_settings'],*/
         [
-            'text' => 'profile',
+            'text' => 'Sair',
+            'url'  => 'painel/logout',
+            'icon' => 'fa fa-fw fa-power-off',
+        ],
+        ['header' => 'Configurações'],
+        [
+            'text' => 'Configurações do Site',
+            'url'  => '',
+            'icon' => 'fa fa-file',
+            'can'  => 'edit-users'
+        ],
+        [
+            'text' => 'Perfil',
             'url'  => 'painel/settings',
             'icon' => 'fas fa-fw fa-user',
+            'can'  => 'edit-users'
         ],
         /*[
             'text' => 'change_password',
@@ -316,11 +328,7 @@ return [
                 ],
             ],
         ],*/
-        [
-            'text' => 'Sair',
-            'url'  => 'painel/logout',
-            'icon' => 'fa fa-fw fa-power-off',
-        ],
+        
         /*['header' => 'labels'],
         [
             'text'       => 'important',

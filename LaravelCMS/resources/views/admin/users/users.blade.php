@@ -31,9 +31,11 @@
                             <button type="button" class="btn btn-info btn-sm"><i class="fas fa-edit"></i></button>
                         </a>
 
-                        <a href="{{route('delete', $user->id)}}">
-                            <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
-                        </a>
+                        @if($user->id != $loggedUser)
+                            <a href="{{route('delete', $user->id)}}">
+                                <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+                            </a>
+                        @endif
                     </td>
                 </tr>
                 @endforeach
@@ -43,11 +45,12 @@
         <!-- /.card-body -->
         <div class="card-footer clearfix">
         <ul class="pagination pagination-sm m-0 float-right">
-            <li class="page-item"><a class="page-link" href="#">«</a></li>
+            {{$users->links()}}
+            <!-- <li class="page-item"><a class="page-link" href="#">«</a></li>
             <li class="page-item"><a class="page-link" href="#">1</a></li>
             <li class="page-item"><a class="page-link" href="#">2</a></li>
             <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">»</a></li>
+            <li class="page-item"><a class="page-link" href="#">»</a></li> --> 
         </ul>
         </div>
   </div>

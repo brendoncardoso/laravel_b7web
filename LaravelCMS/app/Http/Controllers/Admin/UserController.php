@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
+use DB;
 
 class UserController extends Controller
 {
@@ -14,6 +16,7 @@ class UserController extends Controller
 
     public function __construct(){
         $this->user = new User();
+        $this->middleware('can:edit-users');
     }
 
     /**
@@ -24,9 +27,13 @@ class UserController extends Controller
     public function index()
     {
         //
-        $users = User::all();
+        $loggedUser = Auth::user();
+
+        $users = DB::table('users')->paginate(10);
         return view('admin.users.users', [
-            'users' => $users
+            'users' => $users,
+            'loggedUser' => $loggedUser->id
+            
         ]);
     }
 
@@ -105,17 +112,34 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id){
+
+        $data = User::find($id);
         if(User::find($id)){
             $nome = $request->input('name');
             $telephone = $request->input('telephone');
+            $email = $request->input('email');
 
             if(!empty($nome)){
                 $user = User::find($id);
                 $user->name = $nome;
                 $user->telephone = $telephone;
+
+                if(Auth::user()->email == $data['email']){
+                    if($email != $data['email']){
+                        $verifyEmail = User::where('email', $email)->count();
+                        if(!$verifyEmail){
+                           $user->email = $email;
+                        }else{
+                            return redirect()->route('edit', $id)->with('warning', 'Email já está em uso!')->withInput();
+                        }
+                    }
+                }
+
                 $user->save();
                 
                 return redirect()->route('edit', $id)->with('success', 'Usuário alterado com Sucesso!');
+            }else{
+                return redirect()->route('edit', $id)->with('warning', 'Campo nome está vazio!')->withInput();
             }
         }else{
             return redirect()->route('users');
@@ -130,16 +154,20 @@ class UserController extends Controller
      */
     public function destroy($id){
         $user = User::find($id);
-        if($user){
+        $loggedUser = Auth::user()->id;
+
+        if($user && $loggedUser != $id){
             User::destroy($id);
-            return redirect()->route('users');
-        }else{
-            return redirect()->route('users');
         }
+
+        return redirect()->route('users');
     }
 
     public function settings(){
-        return view('admin.settings');
+        $userLogged = Auth::user();
+        return view('admin.users.edit', [
+            'user' => $userLogged
+        ]);
     }
 
     /**

@@ -56,7 +56,7 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="">Nome:</label>
-                                <input type="text" name="name" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" id="" placeholder="Nome Completo" value="{{old('name')}}">
+                                <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" id="" placeholder="Nome Completo" value="{{old('name')}}">
                                 @if($errors->has('name'))
                                     <div class="invalid-feedback">
                                         <strong>{{ $errors->first('name') }}</strong>
@@ -65,7 +65,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Email:</label>
-                                <input type="email" name="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" id="" placeholder="email@email.com" value="{{old('email')}}">
+                                <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" id="" placeholder="email@email.com" value="{{old('email')}}">
                                 @if($errors->has('email'))
                                     <div class="invalid-feedback">
                                         <strong>{{ $errors->first('email') }}</strong>
@@ -74,11 +74,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Telefone:</label>
-                                <input type="text" name="telephone" class="form-control " id="" placeholder="(XX) XXXXX-XXXX" value="{{old('telephone')}}">
+                                <input type="text" name="telephone" class="form-control @error('email') is-invalid @enderror" id="" placeholder="(XX) XXXXX-XXXX" value="{{old('telephone')}}">
                             </div>
                             <div class="form-group">
                                 <label for="">Senha</label>
-                                <input type="password" name="password" class="form-control {{ $errors->has('password') ? 'is-invalid' : '' }}" id="" placeholder="****" value="">
+                                <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" id="" placeholder="****" value="">
                                 @if($errors->has('password'))
                                     <div class="invalid-feedback">
                                         <strong>{{ $errors->first('password') }}</strong>
@@ -87,7 +87,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Confirmar Senha:</label>
-                                <input type="password" name="password_confirmation" class="form-control {{ $errors->has('password_confirmation') ? 'is-invalid' : '' }}" id="" placeholder="****" value="">
+                                <input type="password" name="password_confirmation" class="form-control @error('password_confirmation') is-invalid @enderror" id="" placeholder="****" value="">
                                 @if($errors->has('password_confirmation'))
                                     <div class="invalid-feedback">
                                         <strong>{{ $errors->first('password_confirmation') }}</strong>

@@ -53,7 +53,7 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="">Nome:</label>
-                                <input type="text" name="name" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" id="" placeholder="Nome Completo" value="<?= $user->name; ?>">
+                                <input type="text" name="name" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" id="" placeholder="Nome Completo" value="{{old('name', $user->name)}}">
                                 @if($errors->has('name'))
                                     <div class="invalid-feedback">
                                         <strong>{{ $errors->first('name') }}</strong>
@@ -62,7 +62,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Email:</label>
-                                <input type="email" name="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" id="" placeholder="email@email.com" value="<?= $user->email; ?>" disabled>
+                                <input type="email" name="email" class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" id="" placeholder="email@email.com" value="{{old('email', $user->email)}}" {{Auth::user()->email != $user->email ? 'disabled' : ''}}>
                                 @if($errors->has('email'))
                                     <div class="invalid-feedback">
                                         <strong>{{ $errors->first('email') }}</strong>
@@ -71,7 +71,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="">Telefone:</label>
-                                <input id="telephone" type="text" name="telephone" class="form-control " id="" placeholder="(XX) XXXXX-XXXX" value="<?= $user->telephone; ?>">
+                                <input id="telephone" type="text" name="telephone" class="form-control " id="" placeholder="(XX) XXXXX-XXXX" value="{{old('telephone', $user->telephone)}}">
                             </div>
                             <!--<div class="form-group">
                                 <label for="exampleInputFile">File input</label>
