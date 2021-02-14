@@ -37,10 +37,8 @@ class SettingController extends Controller
                 ->withErrors($validator);
         }
         
-        $selectAll = Setting::all();
-
         foreach($data as $item => $values){ 
-            if(count($selectAll) == 0){
+            if(Setting::count() == 0){
                 $setting = new Setting();
                 $setting->name = $item;
                 $setting->content = $values;
