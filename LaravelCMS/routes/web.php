@@ -15,7 +15,7 @@
     return view('welcome');
 });*/
 
-Route::get('/', 'Site\HomeController@index');
+Route::get('/', 'Admin\HomeController@index');
 
 Route::prefix('/painel')->group(function(){
     Route::get('/', 'Admin\HomeController@index')->name('painel');
@@ -40,5 +40,10 @@ Route::prefix('/painel')->group(function(){
 
     Route::get('/user/delete/{id}', 'Admin\UserController@destroy')->name('delete');
 
-    Route::get('/settings', 'Admin\UserController@settings')->name('settings');
+    Route::get('/profile', 'Admin\ProfileController@index')->name('profile');
+    Route::put('/profileSave', 'Admin\ProfileController@save')->name('profile_save');
+
+    Route::get('/settings', 'Admin\SettingController@index')->name('settings');
+    Route::put('/settingSave', 'Admin\SettingController@save')->name('settings_save');
+
 });

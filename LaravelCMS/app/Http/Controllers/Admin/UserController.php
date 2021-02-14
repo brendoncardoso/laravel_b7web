@@ -163,12 +163,6 @@ class UserController extends Controller
         return redirect()->route('users');
     }
 
-    public function settings(){
-        $userLogged = Auth::user();
-        return view('admin.users.edit', [
-            'user' => $userLogged
-        ]);
-    }
 
     /**
      * Get a validator for an incoming registration request.

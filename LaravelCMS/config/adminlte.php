@@ -275,15 +275,14 @@ return [
         ['header' => 'Configurações'],
         [
             'text' => 'Configurações do Site',
-            'url'  => '',
+            'url'  => 'painel/settings',
             'icon' => 'fa fa-file',
-            'can'  => 'edit-users'
+            'can'  => 'edit-setting'
         ],
         [
             'text' => 'Perfil',
-            'url'  => 'painel/settings',
+            'url'  => 'painel/profile',
             'icon' => 'fas fa-fw fa-user',
-            'can'  => 'edit-users'
         ],
         /*[
             'text' => 'change_password',
