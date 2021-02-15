@@ -255,17 +255,16 @@ return [
             'label_color' => 'success',
         ],*/
         [
-            'text'        => 'Cadastrar Usuários',
-            'url'         => 'painel/cadaster/user',
-            'icon'        => 'fa fa-user-plus',
-            'label_color' => 'success',
-            'can'  => 'edit-users'
+            'text'        => 'Minhas Páginas',
+            'url'         => 'painel/pages',
+            'icon'        => 'fas fa-book',
+            'can'         => 'edit-pages'
         ],
         [
-            'text'        => 'Usuários',
+            'text'        => 'Meus Usuários',
             'url'         => 'painel/users',
             'icon'        => 'fa fa-users',
-            'can'  => 'edit-users'
+            'can'         => 'edit-users'
         ],
         [
             'text' => 'Sair',

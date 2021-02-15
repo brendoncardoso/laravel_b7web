@@ -32,5 +32,9 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('edit-setting', function($user){
             return $user->admin === 1;
         });
+
+        Gate::define('edit-pages', function($user){
+            return $user->admin === 1;
+        });
     }
 }

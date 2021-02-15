@@ -46,4 +46,12 @@ Route::prefix('/painel')->group(function(){
     Route::get('/settings', 'Admin\SettingController@index')->name('settings');
     Route::put('/settingSave', 'Admin\SettingController@save')->name('settings_save');
 
+    Route::get('/pages', 'Admin\PageController@index')->name('pages');
+    Route::get('/pages/cadaster', 'Admin\PageController@create')->name('pages_cadaster_get');
+    Route::post('/pages/cadaster', 'Admin\PageController@store')->name('pages_cadaster_post');
+
+    Route::get('/pages/edit/{id}', 'Admin\PageController@edit')->name('page-edit');
+    Route::post('/pages/edit/{id}', 'Admin\PageController@update')->name('page-update');
+    Route::get('/pages/delete/{id}', 'Admin\PageController@destroy')->name('page-detele');
+
 });

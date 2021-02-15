@@ -5,8 +5,12 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-        <h3 class="card-title">Lista de Usuários</h3>
+            <h3 class="card-title">Lista de Usuários</h3>
+            <a href="{{route('cadaster_user')}}">
+                <button type="button" class="btn btn-success btn-sm float-right"><i class="fa fa-plus"></i> Cadastrar</button>
+            </a>
         </div>
+        
         <!-- /.card-header -->
         <div class="card-body">
         <table class="table table-bordered">

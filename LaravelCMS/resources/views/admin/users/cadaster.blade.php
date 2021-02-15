@@ -114,9 +114,16 @@
                             <!-- /.card-body -->
             
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary" style='float:right'>Cadastrar</button>
+                                <button type="submit" class="btn btn-success" style='float:right'><i class="fas fa-save" aria-hidden="true"></i> Cadastrar</button>
                             </div>
-                    </form>
+                        </form>
+                        <div class="card-footer">
+                            <a href="{{route('users')}}">
+                                <button type="" class="btn btn-danger" style='float:right; margin-right: 5px;'>
+                                    <i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar
+                                </button>
+                            </a>
+                        </div>
                     </div>
                     <!-- /.card -->
                 </div>
