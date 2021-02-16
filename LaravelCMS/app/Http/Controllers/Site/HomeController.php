@@ -9,6 +9,14 @@ class HomeController extends Controller
 {
     //
     public function index(){
-        return view('site.home');
+        $page = [
+            'title' => 'Home',
+            'slug' => '/', 
+            'body' => ''
+        ];
+
+        return view('site.home', [
+            'page' => $page
+        ]);
     }
 }

@@ -15,7 +15,7 @@
     return view('welcome');
 });*/
 
-Route::get('/', 'Admin\HomeController@index');
+Route::get('/', 'Site\HomeController@index')->name('home');
 
 Route::prefix('/painel')->group(function(){
     Route::get('/', 'Admin\HomeController@index')->name('painel');
@@ -56,3 +56,5 @@ Route::prefix('/painel')->group(function(){
     Route::get('/pages/delete/{id}', 'Admin\PageController@destroy')->name('page-detele');
 
 });
+
+Route::fallback('Site\PageController@index');
