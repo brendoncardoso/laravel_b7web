@@ -33,7 +33,6 @@ class UserController extends Controller
         return view('admin.users.users', [
             'users' => $users,
             'loggedUser' => $loggedUser->id
-            
         ]);
     }
 

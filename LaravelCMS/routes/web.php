@@ -19,6 +19,7 @@ Route::get('/', 'Admin\HomeController@index');
 
 Route::prefix('/painel')->group(function(){
     Route::get('/', 'Admin\HomeController@index')->name('painel');
+    Route::get('/?days', 'Admin\HomeController@index')->name('painel-days');
 
     Route::get('/login', 'Admin\Auth\LoginController@index')->name('login');
     Route::post('/login', 'Admin\Auth\LoginController@logar');
